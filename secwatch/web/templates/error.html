@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}없음 · KR-SecWatch ITS{% endblock %}
+{% block content %}
+<section class="sheet">
+  <h1>{{ message }}</h1>
+  <p><a href="{{ url_for('dashboard') }}">현황으로 돌아간다.</a></p>
+</section>
+{% endblock %}

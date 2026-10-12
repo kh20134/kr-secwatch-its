@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title><![CDATA[보호나라>알림마당>보안공지]]></title>
+    <item>
+      <title><![CDATA[ FortiOS 경계 방화벽 보안공지 ]]></title>
+      <link><![CDATA[ https://www.boho.or.kr/kr/bbs/view.do?bbsId=B0000133&nttId=90001 ]]></link>
+      <pubDate><![CDATA[ D-1 ]]></pubDate>
+      <description><![CDATA[ 샘플 공지. CVE-2099-1401 관련 제조사 업데이트를 확인한다. ]]></description>
+    </item>
+    <item>
+      <title><![CDATA[ 보호나라 일반 계정 보안 수칙 ]]></title>
+      <link><![CDATA[ https://www.boho.or.kr/kr/bbs/view.do?bbsId=B0000133&nttId=90002 ]]></link>
+      <pubDate><![CDATA[ D-4 ]]></pubDate>
+      <description><![CDATA[ 비밀번호를 공유하지 않는다는 샘플 수칙. 특정 제품은 없다. ]]></description>
+    </item>
+  </channel>
+</rss>

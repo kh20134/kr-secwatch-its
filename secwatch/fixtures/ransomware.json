@@ -1,0 +1,21 @@
+[
+  {
+    "victim": "남해샘플도로",
+    "group": "paper-lock",
+    "country": "KR",
+    "activity": "Transportation",
+    "discovered": "D-1",
+    "claim_url": "http://not-a-real-host.onion/LEAKMARKER",
+    "description": "LEAKMARKER stolen-files narrative must be dropped",
+    "infostealer": {"users": 12},
+    "domain": "example.kr"
+  },
+  {
+    "victim": "오클랜드샘플클리닉",
+    "group": "other-group",
+    "country": "US",
+    "activity": "Healthcare",
+    "discovered": "D-5",
+    "claim_url": "http://clinic-claim.onion/drop-me"
+  }
+]

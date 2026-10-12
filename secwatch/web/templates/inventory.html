@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}자산대장 · KR-SecWatch ITS{% endblock %}
+{% block content %}
+<section class="sheet">
+  <h1>자산대장</h1>
+  <p class="lead">{{ inventory.meta.get('owner') }} · {{ inventory.meta.get('qualification') }} · {{ inventory.meta.get('organization') }}({{ inventory.meta.get('site') }}) {{ inventory.meta.get('role') }}</p>
+  <p>별칭이 제목·요약·제품명에 있으면 우선순위에 18점을 한 번 더한다. 파일은 <code>secwatch/assets/inventory.yaml</code> 이다.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>구분</th><th>제품</th><th>역할</th><th>별칭</th><th>적중</th></tr>
+      </thead>
+      <tbody>
+        {% for asset in inventory.assets %}
+        <tr>
+          <td>{{ asset.category_label }}</td>
+          <td>{{ asset.label }}</td>
+          <td>{{ asset.role }}</td>
+          <td>{{ asset.aliases|join(', ') }}</td>
+          <td>{{ counts.get(asset.id, 0) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{
+  "resultsPerPage": 5,
+  "vulnerabilities": [
+    {
+      "cve": {
+        "id": "CVE-2099-1401",
+        "published": "D-3",
+        "descriptions": [{"lang": "en", "value": "Sample FortiOS management issue. No procedure is included."}],
+        "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}]}
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2099-1402",
+        "published": "D-2",
+        "descriptions": [{"lang": "en", "value": "Sample Ivanti Connect Secure issue."}],
+        "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 9.1}}]}
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2099-1403",
+        "published": "D-2",
+        "descriptions": [{"lang": "ko", "value": "한화비전 Wisenet NVR 점검 샘플"}],
+        "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 8.0}}]}
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2099-1405",
+        "published": "D-6",
+        "descriptions": [{"lang": "en", "value": "Sample Siemens SIMATIC controller issue."}],
+        "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 9.0}}]}
+      }
+    },
+    {
+      "cve": {
+        "id": "CVE-2099-1499",
+        "published": "D-3",
+        "descriptions": [{"lang": "ko", "value": "가전 펌웨어 일정 샘플"}],
+        "metrics": {"cvssMetricV31": [{"type": "Primary", "cvssData": {"baseScore": 4.0}}]}
+      }
+    }
+  ]
+}

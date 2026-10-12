@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ item.title }} · KR-SecWatch ITS{% endblock %}
+{% block content %}
+<p class="back"><a href="{{ url_for('dashboard') }}">현황으로</a></p>
+<article class="sheet detail">
+  <p class="meta">
+    <span class="pill" data-band="{{ item.band }}">{{ item.band }} {{ item.priority }}점</span>
+    {{ source_label(item.source) }} · {{ kind_label(item.kind) }}
+    {% if item.published_at %} · {{ item.published_at }}{% endif %}
+  </p>
+  <h1>{{ item.title }}</h1>
+  {% if item.summary %}<p class="lead">{{ item.summary }}</p>{% endif %}
+  <dl class="facts">
+    {% if item.cve_ids %}<div><dt>CVE</dt><dd>{{ item.cve_ids|join(', ') }}</dd></div>{% endif %}
+    {% if item.vendor or item.product %}<div><dt>제품</dt><dd>{{ item.vendor }} {{ item.product }}</dd></div>{% endif %}
+    {% if item.country %}<div><dt>국가</dt><dd>{{ item.country }}</dd></div>{% endif %}
+    {% if item.actor %}<div><dt>주장 그룹</dt><dd>{{ item.actor }}</dd></div>{% endif %}
+    {% if item.sector %}<div><dt>업종</dt><dd>{{ item.sector }}</dd></div>{% endif %}
+    {% if item.korea_hits %}<div><dt>한국 단서</dt><dd>{{ item.korea_hits|join(', ') }}</dd></div>{% endif %}
+    {% if item.its_tags %}<div><dt>인프라 태그</dt><dd>{{ item.its_tags|join(', ') }}</dd></div>{% endif %}
+    {% if item.asset_hits %}
+    <div><dt>자산</dt><dd>{% for asset_id in item.asset_hits %}{{ inventory.label_of(asset_id) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>
+    {% endif %}
+  </dl>
+  <h2>점수</h2>
+  <table>
+    <thead><tr><th>요소</th><th>값</th><th>점수</th></tr></thead>
+    <tbody>
+      {% for name, value, points in parts %}
+      <tr><td>{{ name }}</td><td>{{ value }}</td><td>{{ points }}</td></tr>
+      {% endfor %}
+      <tr><td>합계</td><td>상한 100</td><td>{{ item.priority }}</td></tr>
+    </tbody>
+  </table>
+  {% if item.kind == 'victim' %}
+  <p class="note">이 항목은 공개 추적기의 피해 주장이다. 조직명·국가·그룹·업종·날짜만 보관하며, 사실로 확인된 사고가 아니다.</p>
+  {% endif %}
+  {% if item.url %}
+  <p><a class="out" href="{{ item.url }}" rel="noopener noreferrer">출처 열기</a></p>
+  {% else %}
+  <p class="muted">보관할 공개 링크가 없다.</p>
+  {% endif %}
+</article>
+{% endblock %}

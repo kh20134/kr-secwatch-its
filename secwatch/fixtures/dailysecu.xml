@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>데일리시큐 샘플</title>
+    <item>
+      <title>거가대교 교통관제 원격접속 점검 샘플</title>
+      <link>https://www.dailysecu.com/news/articleView.html?idxno=90021</link>
+      <pubDate>D-0</pubDate>
+      <description>한국인프라관리 샘플 시나리오. Ivanti Connect Secure. CVE-2099-1402</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+{% if items %}
+<ul class="feed">
+  {% for item in items %}
+  <li>
+    <a class="card" href="{{ url_for('item_page', item_id=item.id) }}">
+      <span class="pill" data-band="{{ item.band }}">{{ item.band }}</span>
+      <span class="score">{{ item.priority }}</span>
+      <span class="card-title">{{ item.title }}</span>
+      <span class="meta">
+        {{ source_label(item.source) }} · {{ kind_label(item.kind) }}
+        {% if item.published_at %} · {{ item.published_at }}{% endif %}
+        {% if item.cve_ids %} · {{ item.cve_ids|join(', ') }}{% endif %}
+      </span>
+      <span class="tags">
+        {% if item.korea %}<em>한국</em>{% endif %}
+        {% if item.its %}<em>ITS·OT</em>{% endif %}
+        {% for asset_id in item.asset_hits %}
+        <em>{{ inventory.label_of(asset_id) }}</em>
+        {% endfor %}
+      </span>
+      <span class="meter" aria-hidden="true"><i style="width: {{ item.priority }}%"></i></span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty">조건에 맞는 항목이 없다.</p>
+{% endif %}

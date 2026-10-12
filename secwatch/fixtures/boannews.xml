@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>보안뉴스 샘플</title>
+    <item>
+      <title>고속도로 CCTV NVR 점검 샘플</title>
+      <link>https://www.boannews.com/media/view.asp?idx=90011</link>
+      <pubDate>D-2</pubDate>
+      <guid>sample-boan-90011</guid>
+      <description><![CDATA[<p>국내 도로 CCTV 저장장치 소식 샘플. 한화비전 Wisenet. CVE-2099-1403</p>]]></description>
+    </item>
+    <item>
+      <title>해외 가전 펌웨어 정기 안내</title>
+      <link>https://www.boannews.com/media/view.asp?idx=90012</link>
+      <pubDate>D-3</pubDate>
+      <guid>sample-boan-90012</guid>
+      <description>해외 가전 펌웨어 일정 샘플. CVE-2099-1499</description>
+    </item>
+    <item>
+      <title>Windows Server 보안 업데이트 샘플</title>
+      <link>https://www.boannews.com/media/view.asp?idx=90013</link>
+      <pubDate>D-2</pubDate>
+      <guid>sample-boan-90013</guid>
+      <description>업무 서버 업데이트 일정 샘플. 지역 단서는 없다.</description>
+    </item>
+  </channel>
+</rss>

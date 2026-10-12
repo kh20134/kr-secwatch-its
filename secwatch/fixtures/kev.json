@@ -1,0 +1,41 @@
+{
+  "title": "sample kev",
+  "catalogVersion": "2099.10.01",
+  "count": 3,
+  "vulnerabilities": [
+    {
+      "cveID": "CVE-2099-1401",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "FortiOS 관리 경로 취약점 샘플",
+      "dateAdded": "D-2",
+      "shortDescription": "샘플 설명. 공격 절차는 없다.",
+      "requiredAction": "제조사 보안 공지에 따라 패치를 적용한다.",
+      "dueDate": "D-0",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://example.invalid/not-stored-as-exploit"
+    },
+    {
+      "cveID": "CVE-2099-1402",
+      "vendorProject": "Ivanti",
+      "product": "Connect Secure",
+      "vulnerabilityName": "Connect Secure 인증 우회 샘플",
+      "dateAdded": "D-1",
+      "shortDescription": "샘플 설명. 원격접속 제품의 공식 업데이트를 확인한다.",
+      "requiredAction": "제조사 보안 공지에 따라 패치를 적용한다.",
+      "dueDate": "D-0",
+      "knownRansomwareCampaignUse": "Known"
+    },
+    {
+      "cveID": "CVE-2099-1405",
+      "vendorProject": "Siemens",
+      "product": "SIMATIC",
+      "vulnerabilityName": "SIMATIC 제어기 인증 샘플",
+      "dateAdded": "D-6",
+      "shortDescription": "현장 제어 제품 샘플. 공격 절차는 없다.",
+      "requiredAction": "제조사 보안 공지에 따라 패치를 적용한다.",
+      "dueDate": "D-0",
+      "knownRansomwareCampaignUse": "Unknown"
+    }
+  ]
+}

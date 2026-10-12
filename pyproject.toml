@@ -1,0 +1,39 @@
+[project]
+name = "kr-secwatch-its"
+version = "0.1.0"
+description = "ITS·인프라 관점의 한국 보안 위협 모니터링 대시보드"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "최규선" }]
+dependencies = [
+  "flask>=3.0,<4",
+  "pyyaml>=6,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+secwatch = "secwatch.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["secwatch*"]
+
+[tool.setuptools.package-data]
+secwatch = [
+  "assets/*.yaml",
+  "fixtures/*",
+  "web/templates/*.html",
+  "web/templates/partials/*.html",
+  "web/static/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

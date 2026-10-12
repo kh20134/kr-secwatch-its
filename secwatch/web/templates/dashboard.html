@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}현황 · KR-SecWatch ITS{% endblock %}
+{% block content %}
+<section class="kpis" aria-label="요약 수치">
+  <article><span>긴급</span><strong>{{ stats.urgent }}</strong></article>
+  <article><span>높음</span><strong>{{ stats.high }}</strong></article>
+  <article><span>한국 연관</span><strong>{{ stats.korea }}</strong></article>
+  <article><span>ITS·OT</span><strong>{{ stats.its }}</strong></article>
+  <article><span>자산 일치</span><strong>{{ stats.assets }}</strong></article>
+  <article><span>KEV</span><strong>{{ stats.kev }}</strong></article>
+</section>
+<div class="mix" aria-hidden="true">
+  {% for row in mix %}
+  <span data-band="{{ row.band }}" style="width: {{ row.pct }}%"></span>
+  {% endfor %}
+</div>
+<p class="mix-legend">
+  {% for row in mix %}
+  <span data-band="{{ row.band }}">{{ row.band }} {{ row.count }}</span>
+  {% endfor %}
+  <span class="muted">전체 {{ stats.total }}</span>
+</p>
+<div class="layout">
+  <section class="panel">
+    <div class="panel-head">
+      <h1>수집 항목</h1>
+      <p class="muted">우선순위 높은 순. 부분 화면은 HTMX로 바꾼다.</p>
+    </div>
+    <form id="filters" class="filters" method="get" action="{{ url_for('dashboard') }}"
+          hx-get="{{ url_for('feed') }}" hx-target="#feed" hx-swap="innerHTML"
+          hx-trigger="change, keyup changed delay:300ms from:input[type=search]">
+      <label>등급
+        <select name="band">
+          <option value="">전체</option>
+          {% for band in bands %}
+          <option value="{{ band }}" {% if filters.band == band %}selected{% endif %}>{{ band }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>종류
+        <select name="kind">
+          <option value="">전체</option>
+          <option value="notice" {% if filters.kind == 'notice' %}selected{% endif %}>공지</option>
+          <option value="news" {% if filters.kind == 'news' %}selected{% endif %}>뉴스</option>
+          <option value="cve" {% if filters.kind == 'cve' %}selected{% endif %}>취약점</option>
+          <option value="victim" {% if filters.kind == 'victim' %}selected{% endif %}>피해 주장</option>
+        </select>
+      </label>
+      <label>범위
+        <select name="scope">
+          <option value="">전체</option>
+          <option value="korea" {% if filters.scope == 'korea' %}selected{% endif %}>한국</option>
+          <option value="its" {% if filters.scope == 'its' %}selected{% endif %}>ITS·OT</option>
+          <option value="asset" {% if filters.scope == 'asset' %}selected{% endif %}>자산 일치</option>
+        </select>
+      </label>
+      <label class="grow">검색
+        <input type="search" name="q" value="{{ filters.q }}" placeholder="CVE, 제품, 조직명" maxlength="80">
+      </label>
+      <button type="submit">적용</button>
+    </form>
+    <div id="feed">
+      {% include "partials/feed.html" %}
+    </div>
+  </section>
+  <aside class="side">
+    <section class="panel">
+      <h2>먼저 볼 항목</h2>
+      <ol class="toplist">
+        {% for item in top %}
+        <li>
+          <a href="{{ url_for('item_page', item_id=item.id) }}">{{ item.title }}</a>
+          <span class="pill" data-band="{{ item.band }}">{{ item.band }} {{ item.priority }}</span>
+        </li>
+        {% else %}
+        <li>아직 없다.</li>
+        {% endfor %}
+      </ol>
+    </section>
+    <section class="panel">
+      <h2>출처</h2>
+      <ul class="sources">
+        {% for source, count in sources %}
+        <li><span>{{ source_label(source) }}</span><strong>{{ count }}</strong></li>
+        {% else %}
+        <li>수집 전</li>
+        {% endfor %}
+      </ul>
+      <p class="muted">마지막 수집 {{ last_collect or "없음" }}</p>
+    </section>
+  </aside>
+</div>
+{% endblock %}

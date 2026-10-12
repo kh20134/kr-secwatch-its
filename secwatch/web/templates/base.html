@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}KR-SecWatch ITS{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='mark.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='htmx.min.js') }}" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로</a>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="brand" href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='mark.svg') }}" alt="" width="48" height="30">
+        <span>
+          <strong>KR-SecWatch ITS</strong>
+          <small>{{ inventory.meta.get('organization', '') }} · {{ inventory.meta.get('site', '') }}</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="{{ url_for('dashboard') }}">현황</a>
+        <a href="{{ url_for('inventory_page') }}">자산대장</a>
+        <a href="{{ url_for('report_page') }}">주간보고</a>
+      </nav>
+      <p class="who">{{ inventory.meta.get('owner', '') }} · {{ inventory.meta.get('qualification', '') }}</p>
+    </div>
+  </header>
+  {% if settings.demo %}
+  <p class="banner">오프라인 샘플이다. 가상 시나리오이며 실제 사고·실제 피해 조직이 아니다.</p>
+  {% endif %}
+  <main id="main" class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="wrap foot">
+    <p>공개 제목·요약·링크와 피해 조직명만 보관한다. 유출 본문과 onion 주소는 받지 않는다.</p>
+  </footer>
+</body>
+</html>
