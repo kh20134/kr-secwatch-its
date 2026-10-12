@@ -1,0 +1,10 @@
+{
+  "status": "OK",
+  "data": [
+    {"cve": "CVE-2099-1401", "epss": "0.94", "percentile": "0.99", "date": "D-0"},
+    {"cve": "CVE-2099-1402", "epss": "0.80", "percentile": "0.98", "date": "D-0"},
+    {"cve": "CVE-2099-1403", "epss": "0.12", "percentile": "0.80", "date": "D-0"},
+    {"cve": "CVE-2099-1405", "epss": "0.40", "percentile": "0.90", "date": "D-0"},
+    {"cve": "CVE-2099-1499", "epss": "0.01", "percentile": "0.40", "date": "D-0"}
+  ]
+}

@@ -1,0 +1,101 @@
+# 거가대교 전산 관점의 관심 자산. 별칭은 운영자가 고쳐 쓴다.
+# 짧은 일반명(Windows, Linux, IOS)은 오탐이 커서 넣지 않았다.
+
+meta:
+  owner: 최규선
+  qualification: 정보관리기술사
+  organization: 한국인프라관리
+  site: 거가대교
+  role: 전산시스템 총괄
+  focus:
+    - ITS·교통
+    - 도로·교량
+    - OT·SCADA·ICS
+    - CCTV·NVR
+    - 네트워크 장비
+    - Windows·Linux 서버
+
+assets:
+  - id: fortigate
+    category: network
+    vendor: Fortinet
+    product: FortiGate
+    role: 경계 방화벽
+    aliases: [Fortinet, FortiGate, FortiOS, 포티넷, 포티게이트]
+
+  - id: cisco-catalyst
+    category: network
+    vendor: Cisco
+    product: Catalyst
+    role: 내부 스위치·라우팅
+    aliases: [Cisco, Catalyst, IOS XE, 시스코]
+
+  - id: ivanti-access
+    category: remote-access
+    vendor: Ivanti
+    product: Connect Secure
+    role: 원격접속
+    aliases: [Ivanti, Connect Secure, Pulse Secure, 아이반티]
+
+  - id: windows-server
+    category: server
+    vendor: Microsoft
+    product: Windows Server
+    role: 업무·관제 서버
+    aliases: [Windows Server, 윈도우 서버]
+
+  - id: ubuntu-server
+    category: server
+    vendor: Canonical
+    product: Ubuntu
+    role: 리눅스 서버
+    aliases: [Ubuntu, 우분투]
+
+  - id: rhel-server
+    category: server
+    vendor: Red Hat
+    product: RHEL
+    role: 리눅스 서버
+    aliases: [Red Hat, RHEL, Rocky Linux]
+
+  - id: cctv-nvr
+    category: cctv
+    vendor: Hanwha Vision
+    product: Wisenet NVR
+    role: 교량·도로 영상 저장
+    aliases: [Hanwha, Wisenet, 한화비전, 와이즈넷, NVR]
+
+  - id: vms-sign
+    category: its
+    vendor: ITS
+    product: 가변정보표지
+    role: 도로 전광
+    aliases: [가변정보표지, 가변전광, 전광판]
+
+  - id: toll-lane
+    category: its
+    vendor: ITS
+    product: 차로·요금
+    role: 톨링·차로제어
+    aliases: [하이패스, 차로제어, 톨게이트, 요금소]
+
+  - id: moxa-switch
+    category: ot
+    vendor: Moxa
+    product: EDS
+    role: 현장 산업용 스위치
+    aliases: [Moxa, 모싸]
+
+  - id: simatic
+    category: ot
+    vendor: Siemens
+    product: SIMATIC
+    role: 현장 제어
+    aliases: [SIMATIC, S7-1500, S7-1200, 지멘스]
+
+  - id: modicon
+    category: ot
+    vendor: Schneider Electric
+    product: Modicon
+    role: 현장 제어
+    aliases: [Schneider, Modicon, 슈나이더]
