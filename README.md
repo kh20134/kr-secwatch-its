@@ -67,8 +67,20 @@ docker build -t kr-secwatch-its .
 docker run --rm -p 8080:8080 kr-secwatch-its
 ```
 
-- 이미지는 샘플 모드로 8080을 연다
+- 이미지는 샘플 모드로 8080을 연다. gunicorn이 `wsgi:app`을 띄운다
 - 한글 표시를 위해 Noto CJK를 넣는다
+
+## 라이브 데모
+
+공개 샘플을 [https://kr-secwatch-its.fly.dev/](https://kr-secwatch-its.fly.dev/)에서 제공함.
+
+- Fly.io 앱 이름은 `kr-secwatch-its`이고, 리전은 `nrt`임
+- 머신은 `shared-cpu-1x`, 메모리 256MB임
+- 유휴 시 자동으로 정지하고, 요청이 들어오면 자동으로 기동함. 최소 가동 대수는 0임
+- `SECWATCH_DEMO=1`, `SECWATCH_DB=/tmp/demo.db`로 샘플 픽스처를 적재함
+- gunicorn이 `0.0.0.0:8080`에서 `wsgi:app`을 실행함
+- 상태 확인은 `GET /healthz`임. 화면은 조회(GET)만 제공함
+- 샘플 배너가 보이면 가상 데이터임. 정지된 뒤의 첫 요청은 기동에 수 초가 걸릴 수 있음
 
 ## 4. 설정
 

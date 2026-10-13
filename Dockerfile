@@ -12,6 +12,7 @@ RUN apt-get update \
 WORKDIR /app
 COPY pyproject.toml README.md LICENSE ./
 COPY secwatch ./secwatch
+COPY wsgi.py ./
 RUN pip install --no-cache-dir . \
     && mkdir -p /app/data \
     && useradd --create-home --uid 10001 secwatch \
@@ -19,4 +20,4 @@ RUN pip install --no-cache-dir . \
 
 USER secwatch
 EXPOSE 8080
-CMD ["python", "-m", "secwatch", "serve", "--demo", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "wsgi:app"]
